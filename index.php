@@ -3,7 +3,6 @@ session_start();
 
 require_once(dirname(__FILE__)."/model/"."Model.php");
 require_once(dirname(__FILE__)."/view/"."View.php");
-require_once(dirname(__FILE__)."/config.php");
 
 date_default_timezone_set("Asia/Hong_Kong");
 
