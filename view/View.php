@@ -21,7 +21,7 @@ class View {
 				$this->renderNormal("notesuccess.tpl.json");
 				break;
 			case "noteFail":
-				$this->renderNormal("notefail.tpl.json");
+				$this->renderStatic("notefail.tpl.json");
 				break;
 			case "404":
 			default:

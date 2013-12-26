@@ -1,5 +1,5 @@
 <?php
-define("KEY","1234567890abcdefghijklmnopqrstuvwxyz");
+define("KEY","23456789abcdefghijkmnoprstuvwxyz");
 define("CODELEN",4);
 class Model {
 	private $type;
@@ -13,7 +13,6 @@ class Model {
 	public function storeNote() {
 		$key = KEY;
 		$fn = "";
-		// don't use this for production code, confuses people
 		for (;strlen($fn)<CODELEN || file_exists($fn.".txt");$fn = (strlen($fn)>=CODELEN)?$key[rand(0,strlen($key)-1)]:$fn.$key[rand(0,strlen($key)-1)]);
 		if (file_put_contents("var/".$fn.".txt",$_POST["note"])) {
 			return $fn;
@@ -23,7 +22,7 @@ class Model {
 	}
 	
 	public function cleanUp() {
-		$fl = glob("var/*");
+		$fl = glob("var/*.txt");
 		foreach ($fl as $fn) {
 			if ((time()-filemtime($fn))/3600 > 1)
 				// time - last modified > 1 hours

@@ -1,0 +1,112 @@
+﻿div.content {
+	padding-top: 4em;
+	line-height: 200%;
+}
+textarea#note {
+	font-size: 1em;
+	height: 8em;
+	width: 20em;
+}
+input#code {
+	font-size: 2em;
+	text-align: center;
+	width: 4em;
+}
+@keyframes vertBounce {
+	/* 100*SIN(X)/X */
+	0% {transform:translateY(0%);}
+	1% {transform:translateY(24.14709848%);}
+	5% {transform:translateY(-19.17848549%);}
+	10% {transform:translateY(-5.440211109%);}
+	15% {transform:translateY(4.335252268%);}
+	20% {transform:translateY(4.564726254%);}
+	25% {transform:translateY(-0.529407%);}
+	30% {transform:translateY(-3.293438747%);}
+	35% {transform:translateY(-1.223379056%);}
+	40% {transform:translateY(1.862782901%);}
+	45% {transform:translateY(1.890896721%);}
+	50% {transform:translateY(-0.524749707%);}
+	55% {transform:translateY(-1.817736679%);}
+	60% {transform:translateY(-0.508017702%);}
+	65% {transform:translateY(1.272044122%);}
+	70% {transform:translateY(1.105558117%);}
+	75% {transform:translateY(-0.517042181%);}
+	80% {transform:translateY(-1.242360817%);}
+	85% {transform:translateY(-0.207147788%);}
+	90% {transform:translateY(0.993329626%);}
+	95% {transform:translateY(0.719222858%);}
+	100% {transform:translateY(0%);}
+}
+@-webkit-keyframes vertBounce {
+	0% {-webkit-transform:translateY(0%);}
+	1% {-webkit-transform:translateY(24.14709848%);}
+	5% {-webkit-transform:translateY(-19.17848549%);}
+	10% {-webkit-transform:translateY(-5.440211109%);}
+	15% {-webkit-transform:translateY(4.335252268%);}
+	20% {-webkit-transform:translateY(4.564726254%);}
+	25% {-webkit-transform:translateY(-0.529407%);}
+	30% {-webkit-transform:translateY(-3.293438747%);}
+	35% {-webkit-transform:translateY(-1.223379056%);}
+	40% {-webkit-transform:translateY(1.862782901%);}
+	45% {-webkit-transform:translateY(1.890896721%);}
+	50% {-webkit-transform:translateY(-0.524749707%);}
+	55% {-webkit-transform:translateY(-1.817736679%);}
+	60% {-webkit-transform:translateY(-0.508017702%);}
+	65% {-webkit-transform:translateY(1.272044122%);}
+	70% {-webkit-transform:translateY(1.105558117%);}
+	75% {-webkit-transform:translateY(-0.517042181%);}
+	80% {-webkit-transform:translateY(-1.242360817%);}
+	85% {-webkit-transform:translateY(-0.207147788%);}
+	90% {-webkit-transform:translateY(0.993329626%);}
+	95% {-webkit-transform:translateY(0.719222858%);}
+	100% {-webkit-transform:translateY(0%);}
+}
+@keyframes horiBounce {
+	/* 100*SIN(X)/X */
+	0% {transform:translateX(0%);}
+	1% {transform:translateX(24.14709848%);}
+	5% {transform:translateX(-19.17848549%);}
+	10% {transform:translateX(-5.440211109%);}
+	15% {transform:translateX(4.335252268%);}
+	20% {transform:translateX(4.564726254%);}
+	25% {transform:translateX(-0.529407%);}
+	30% {transform:translateX(-3.293438747%);}
+	35% {transform:translateX(-1.223379056%);}
+	40% {transform:translateX(1.862782901%);}
+	45% {transform:translateX(1.890896721%);}
+	50% {transform:translateX(-0.524749707%);}
+	55% {transform:translateX(-1.817736679%);}
+	60% {transform:translateX(-0.508017702%);}
+	65% {transform:translateX(1.272044122%);}
+	70% {transform:translateX(1.105558117%);}
+	75% {transform:translateX(-0.517042181%);}
+	80% {transform:translateX(-1.242360817%);}
+	85% {transform:translateX(-0.207147788%);}
+	90% {transform:translateX(0.993329626%);}
+	95% {transform:translateX(0.719222858%);}
+	100% {transform:translateX(0%);}
+}
+@-webkit-keyframes horiBounce {
+	0% {-webkit-transform:translateX(0%);}
+	1% {-webkit-transform:translateX(24.14709848%);}
+	5% {-webkit-transform:translateX(-19.17848549%);}
+	10% {-webkit-transform:translateX(-5.440211109%);}
+	15% {-webkit-transform:translateX(4.335252268%);}
+	20% {-webkit-transform:translateX(4.564726254%);}
+	25% {-webkit-transform:translateX(-0.529407%);}
+	30% {-webkit-transform:translateX(-3.293438747%);}
+	35% {-webkit-transform:translateX(-1.223379056%);}
+	40% {-webkit-transform:translateX(1.862782901%);}
+	45% {-webkit-transform:translateX(1.890896721%);}
+	50% {-webkit-transform:translateX(-0.524749707%);}
+	55% {-webkit-transform:translateX(-1.817736679%);}
+	60% {-webkit-transform:translateX(-0.508017702%);}
+	65% {-webkit-transform:translateX(1.272044122%);}
+	70% {-webkit-transform:translateX(1.105558117%);}
+	75% {-webkit-transform:translateX(-0.517042181%);}
+	80% {-webkit-transform:translateX(-1.242360817%);}
+	85% {-webkit-transform:translateX(-0.207147788%);}
+	90% {-webkit-transform:translateX(0.993329626%);}
+	95% {-webkit-transform:translateX(0.719222858%);}
+	100% {-webkit-transform:translateX(0%);}
+}

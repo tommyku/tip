@@ -6,23 +6,8 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />  
 	
 	<title>Tib - index</title>
-	<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.3.0/base-min.css&pure/0.3.0/forms-min.css&pure/0.3.0/buttons-min.css">
-	<style>
-		div.content {
-			padding-top: 4em;
-			line-height: 200%;
-		}
-		textarea#note {
-			font-size: 1em;
-			height: 8em;
-			width: 20em;
-		}
-		input#code {
-			font-size: 2em;
-			text-align: center;
-			width: 4em;
-		}
-	</style>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.3.0/base-min.css&pure/0.3.0/forms-min.css&pure/0.3.0/buttons-min.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 	<div class="pure-form">
@@ -39,8 +24,9 @@
 			</center>
 		</div>
 	</div>
- 	<script src="jquery-css-deprecated-dimensions-effects-event-alias-offset-wrap.min.js" type="text/javascript"></script>
+ 	<script src="jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
+		// NOTE: the jquery has some unnecessary functions removed
 		function sendNote() {
 			$note = $("#note");
 			$.ajax({
@@ -50,13 +36,21 @@
 				dataType: "json"
 			})
 			.done(function(data) {
-				if (data.success)
-					$("#code").val(data.code);
-				else
+				if (data.success) {
+					$("#code").val(data.code).css("animation","vertBounce 0.5s");
+				}
+				else {
+					$("#code").val("Error").css("animation","horiBounce 0.5s");
 					console.log(data);
+				}
+				$("#code").on("animationEnd",function(){$(this).css("animation","");})
+				.on("webkitAnimationEnd",function(){$(this).css("animation","");});
 			})
 			.fail(function(e) {
+				$("#code").val("Error").css("animation","horiBounce 0.5s");
 				console.log(e);
+				$("#code").on("animationEnd",function(){$(this).css("animation","");})
+				.on("webkitAnimationEnd",function(){$(this).css("animation","");});
 			});
 		}
 
@@ -69,13 +63,22 @@
 				dataType: "json"
 			})
 			.done(function(data) {
-				if (data.success)
-					$("#note").val(data.note);
-				else
+				if (data.success) {
+					$("#note").val(data.note).css("animation","vertBounce 0.5s");
+					$("#code").val("");
+				}
+				else {
+					$("#note").val("Error").css("animation","horiBounce 0.5s");
 					console.log(data);
+				}
+				$("#note").on("animationEnd",function(){$(this).css("animation","");})
+				.on("webkitAnimationEnd",function(){$(this).css("animation","");});
 			})
 			.fail(function(e) {
+				$("#note").val("Error").css("animation","horiBounce 0.5s");
 				console.log(e);
+				$("#note").on("animationEnd",function(){$(this).css("animation","");})
+				.on("webkitAnimationEnd",function(){$(this).css("animation","");});
 			});
 		}
 
