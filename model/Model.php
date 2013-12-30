@@ -43,7 +43,7 @@ class Model {
 			return false;
 		}
 		else {
-			$fc = file_get_contents("var/".$code.".txt");
+			$fc = addcslashes(file_get_contents("var/".$code.".txt"),"\n,\r,\\,\',\",\0");
 			unlink("var/".$code.".txt");
 			return $fc;
 		}
