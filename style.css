@@ -8,6 +8,7 @@ textarea#note {
 	width: 20em;
 }
 input#code {
+	border: none;
 	font-size: 2em;
 	text-align: center;
 	width: 4em;

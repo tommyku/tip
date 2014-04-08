@@ -11,6 +11,12 @@ class View {
 			case "index":
 				$this->renderStatic("index.tpl.html");
 				break;
+			case "codeUrlFail":
+				$this->renderNormal("codeUrlFail.tpl.html");
+				break;
+			case "codeUrlSuccess":
+				$this->renderNormal("codeUrlSuccess.tpl.html");
+				break;
 			case "codeSuccess":
 				$this->renderNormal("codesuccess.tpl.json");
 				break;

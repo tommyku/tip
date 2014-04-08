@@ -14,7 +14,7 @@ class Control {
 	private $action = "";
 
 	public function __construct() {
-        $this->action = isset($_REQUEST['action']) ? strtolower($_REQUEST['action']) : 'index';
+        $this->action = isset($_REQUEST['action']) ? strtolower($_REQUEST['action']) : (($_SERVER["QUERY_STRING"] == "") ? 'index' : $_SERVER["QUERY_STRING"]);
 		$this->model = new Model;
 		$this->view = new View;
 	}
@@ -33,8 +33,10 @@ class Control {
 			case "clear":
 				$this->handleClear();
 				break;
-			default:
+			case "404":
 				$this->handle404();
+			default:
+				$this->handleURLCode();
 		};
 	}
 
@@ -68,6 +70,26 @@ class Control {
 		}
 		else
 			$this->view->setView("codeFail");
+		$this->view->render();
+	}
+
+	private function handleURLCode() {
+		$note = $this->model->getURLNote($this->action);
+		if ($note !== false) {
+			$formfield = array(
+				"{note}" => $note,
+				"{code}" => $this->action
+			);
+			$this->view->setVar($formfield);
+			$this->view->setView("codeUrlSuccess");
+		}
+		else {
+			$formfield = array(
+				"{code}" => $this->action
+			);
+			$this->view->setVar($formfield);
+			$this->view->setView("codeUrlFail");
+		}
 		$this->view->render();
 	}
 	

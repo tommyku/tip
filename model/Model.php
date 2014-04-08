@@ -13,8 +13,14 @@ class Model {
 	public function storeNote() {
 		$key = KEY;
 		$fn = "";
-		for (;strlen($fn)<CODELEN || file_exists($fn.".txt");$fn = (strlen($fn)>=CODELEN)?$key[rand(0,strlen($key)-1)]:$fn.$key[rand(0,strlen($key)-1)]);
-		if (file_put_contents("var/".$fn.".txt",$_POST["note"])) {
+		// generate random non-repeated filename
+		for (;strlen($fn)<CODELEN || file_exists($fn.".json");$fn = (strlen($fn)>=CODELEN)?$key[rand(0,strlen($key)-1)]:$fn.$key[rand(0,strlen($key)-1)]);
+
+		$tmpObj = new StdClass();
+		$tmpObj->note = $_POST["note"];
+		$tmpObj->success = true;
+
+		if (file_put_contents("var/".$fn.".json", json_encode($tmpObj))) {
 			return $fn;
 		}
 		else
@@ -22,7 +28,7 @@ class Model {
 	}
 	
 	public function cleanUp() {
-		$fl = glob("var/*.txt");
+		$fl = glob("var/*.json");
 		foreach ($fl as $fn) {
 			if ((time()-filemtime($fn))/3600 > 1)
 				// time - last modified > 1 hours
@@ -39,13 +45,24 @@ class Model {
 
 	public function getNote() {
 		$code = $_POST["code"];
-		if ((strlen($code) != CODELEN) || !is_file("var/".$code.".txt")) {
+		if ((strlen($code) != CODELEN) || !is_file("var/".$code.".json")) {
 			return false;
 		}
 		else {
-			$fc = addcslashes(file_get_contents("var/".$code.".txt"),"\n,\r,\\,\',\",\0");
-			unlink("var/".$code.".txt");
+			$fc = file_get_contents("var/".$code.".json");
+			unlink("var/".$code.".json");
 			return $fc;
+		}
+	}
+	
+	public function getURLNote($code = NULL) {
+		if (!$code || (strlen($code) != CODELEN) || !is_file("var/".$code.".json")) {
+			return false;
+		}
+		else {
+			$fc = json_decode(file_get_contents("var/".$code.".json"));
+			unlink("var/".$code.".json");
+			return $fc->note;
 		}
 	}
 }
